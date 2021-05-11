@@ -1,0 +1,24 @@
+{
+  "name": "tez",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bootstrap": "^5.0.0-beta3",
+    "mongoose": "^5.12.7",
+    "next": "10.2.0",
+    "next-auth": "^3.20.1",
+    "next-redux-wrapper": "^6.0.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-redux": "^7.2.3",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.3.0"
+  }
+}

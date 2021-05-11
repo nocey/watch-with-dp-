@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.text-color-1{
+    text-transform: uppercase;
+	background: linear-gradient(0deg, rgba(220,64,70,1) 0%, rgba(189,75,115,1) 29%, rgba(158,85,159,1) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.h1000{
+    height: 150vh;
+}
+
+.film-bg{
+    width: 100% !important;
+    height: 40vh !important;
+    box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+}
+
+.bg-score{
+    /* background-position: left top;  
+    background-image: url('/img/bg-score.png'); */
+}
+
+
+.z-index-1{
+    z-index: 1;
+    color:black;
+}
+
+.tester{
+    background-color:white;
+    
+}
+
+.z-index-2{
+    z-index: 2;
+    color:black;
+}
+
+
+.bg-film{
+    opacity:0.4;
+}
+
+.bg-color-1 {
+    background-color: #242424;
+}
+
+.bg-color-2 {
+    background-color: #181818;
+}
+
+.nick{
+    color:rgba(118, 118, 118, 0.6);
+}
+
+.post:first-child{
+    margin-top:0;
+}
+
+.post{
+    margin-top:2rem;
+    background-color: #181818;
+}
+
+.border-stats{
+    border:3px solid green;
+    border-radius: 100%;
+}
