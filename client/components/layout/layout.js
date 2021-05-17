@@ -17,7 +17,7 @@ const Layout = ({ children, title = "This is the default title" }) => {
         <nav className="mb-4">
           <div className="container-fluid">
             <div className="row justify-content-start align-items-center">
-              <div className="col-3 d-flex justify-content-end align-items-center m-2">
+              <div className="col-3 col-lg-2 d-flex justify-content-end align-items-center m-2">
                 <Link href="/">
                   <a>
                     <Image
@@ -29,7 +29,7 @@ const Layout = ({ children, title = "This is the default title" }) => {
                   </a>
                 </Link>
               </div>
-              <div className="col-md-4 col-lg-4 d-flex justify-content-evenly align-items-center fs-5">
+              <div className="col-12 col-lg-9 col-xl-7 d-flex justify-content-evenly align-items-center fs-5">
                 <Link href="/">
                   <a className="text-color-1 fw-bold">Home</a>
                 </Link>
