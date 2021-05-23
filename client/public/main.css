@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 *{
     font-family: 'Roboto', sans-serif;
+    
+}
+body{
+    background-color:#242424;
 }
 
 a{
@@ -16,6 +20,19 @@ a{
 
 .h1000{
     height: 150vh;
+}
+
+.text-area-post{
+    background-color:rgb(43, 43, 43);
+    color: #929292;
+    height:200px;
+    border:1px solid #242424;
+}
+
+.bg-color-button{
+    background: linear-gradient(
+        0deg
+        , rgba(220,64,70,1) 0%, rgba(189,75,115,1) 29%, rgba(158,85,159,1) 100%);
 }
 
 .film-bg{

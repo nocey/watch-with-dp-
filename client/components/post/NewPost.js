@@ -2,47 +2,8 @@ import { useMutation } from "@apollo/client";
 import gql from "graphql-tag";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { setContext } from "@apollo/client/link/context";
-
-export default function Post({ link, name, nick }) {
-  const [post, setPost] = useState();
-  const [ses, setSes] = useState();
-  const [postdata, setPostData] = useState();
-  useEffect(() => {
-  }, []);
-  const CREATE_POST = gql`
-    mutation createPost($body: String!) {
-      createPost(body: $body) {
-        id
-        body
-        username
-        comments {
-          body
-          createdAt
-          username
-        }
-        likes {
-          id
-          username
-        }
-      }
-    }
-  `;
-
-
-  const [postCreate, { data, loading }] = useMutation(CREATE_POST);
-  
-
-
-  const formSubmit = (e) => {
-    e.preventDefault();
-    postCreate({
-      variables: {
-        body: post,
-      },
-    });
-  };
+import React, { useState } from "react";
+export default function NewPost({ link, name, nick, data }) {
   return (
     <div className="row post">
       <div className="col-1">
@@ -79,22 +40,7 @@ export default function Post({ link, name, nick }) {
           </div>
         </div>
         <div className="col-9 mb-4">
-          <form className="" onSubmit={formSubmit}>
-            <textarea
-              className="text-area-post w-100  ps-3 pt-3"
-              onChange={(e) => {
-                setPost(e.target.value);
-              }}
-            ></textarea>
-            <div className="">
-              <input
-                type="submit"
-                className="btn bg-color-button text-white"
-                placeholder="Gonder"
-                value="Gonder"
-              />
-            </div>
-          </form>
+          <p>{data && data}</p>
         </div>
       </div>
     </div>

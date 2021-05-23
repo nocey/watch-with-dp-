@@ -8,8 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.19",
+    "apollo-client": "^2.6.10",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.0.0-beta3",
+    "graphql": "^15.5.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.7",
     "next": "10.2.0",
     "next-auth": "^3.20.1",
