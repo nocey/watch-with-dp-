@@ -1,56 +1,25 @@
-import { useMutation } from "@apollo/client";
 import Layout from "components/layout/layout";
-import jwt from "jsonwebtoken";
-import gql from "graphql-tag";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import {loginAuth} from 'redux/action/authAction'
 
-const LOGIN_USER = gql`
-  mutation login($name: String!, $password: String!) {
-    login(username: $name, password: $password) {
-      email
-      token
-      id
-      username
-      createdAt
-    }
-  }
-`;
 export default function login() {
   const [email, setEmail] = useState();
   const [ses, setSes] = useState();
   const [pass, setPass] = useState();
-  const [login, { loading, data }] = useMutation(LOGIN_USER);
+  const dispatch = useDispatch()
+
 
   useEffect(() => {
-    if (data) {
-      sessionStorage.setItem("user", data.login.token);
-    }
-    const b = sessionStorage.getItem("user");
+    setSes(sessionStorage.getItem('user'))
+  })
+  
 
-    setSes(sessionStorage.getItem("user"));
-  }, []);
-
-  const submitLogin = (e) => {
-    e.preventDefault();
-    login({
-      variables: {
-        name: email,
-        password: pass,
-      },
-    });
-  };
 
   if (ses) {
-    var a, error;
-    jwt.verify(ses, "naci12", function (err, decoded) {
-      console.log(decoded); // bar
-      console.log(err);
-      error = err; // bar
-      a = decoded;
-    });
 
     if (error) {
-      return <Layout title="Watch With Dpü">HATA ALDIK</Layout>;
+      return <Layout title="Watch With Dpü">{error.message}</Layout>;
     }
 
     return (
@@ -63,7 +32,7 @@ export default function login() {
   return (
     <Layout title="Watch With Dpü">
       <div>
-        <form onSubmit={submitLogin}>
+        <form >
           <div>
             <input
               type="text"
@@ -83,9 +52,9 @@ export default function login() {
             className="btn bg-color-button text-white"
             placeholder="Gonder"
             value="Gonder"
+            onChange={() => dispatch(loginAuth(email,pass))}
           />
         </form>
-        {data && data.login.email}
       </div>
     </Layout>
   );

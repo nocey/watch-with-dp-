@@ -27,9 +27,6 @@ module.exports = {
     Mutation:{
         async createPost(_ , { body } , context) {
             const user = checkAuth(context)
-
-            console.log(user)
-            
             const newPost = new Post({
                 body,
                 id:user.id,
@@ -43,10 +40,8 @@ module.exports = {
         },
         async deletePost(_ , { postId } , context) {
             const user = checkAuth(context);
-            console.log(_)
             try {
                 const post = await Post.findOne({_id: postId}).exec();
-                console.log(post)
                 if(post.username == user.username){
                     await post.delete();
                     return 'Succesfuly delete the post';

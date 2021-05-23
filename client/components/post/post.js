@@ -41,7 +41,8 @@ export default function Post({ link, name, nick }) {
       variables: {
         body: post,
       },
-    });
+    })
+    console.log(e)
   };
   return (
     <div className="row post">

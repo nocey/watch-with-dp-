@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { UserInputError } = require('apollo-server');
+const checkAuth = require('../../util/check-auth')
 
 const {
   validateRegisterInput,
@@ -90,6 +91,6 @@ module.exports = {
         id: res._id,
         token
       };
-    }
-  }
+    },
+  },
 };

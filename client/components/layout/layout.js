@@ -1,8 +1,11 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
-// import { signIn, signOut, useSession } from 'next-auth/client'
+import jwt from "jsonwebtoken";
+import token from "middlewares/Token";
+import { useDispatch, useSelector } from "react-redux";
+import Auth from "./Auth";
 
 const Layout = ({ children, title = "This is the default title" }) => {
   return (
@@ -29,7 +32,7 @@ const Layout = ({ children, title = "This is the default title" }) => {
                   </a>
                 </Link>
               </div>
-              <div className="col-12 col-lg-9 col-xl-7 d-flex justify-content-evenly align-items-center fs-5">
+              <div className="col-12 col-lg-7 col-xl-7 d-flex justify-content-evenly align-items-center fs-5">
                 <Link href="/">
                   <a className="text-color-1 fw-bold">Home</a>
                 </Link>
@@ -46,7 +49,8 @@ const Layout = ({ children, title = "This is the default title" }) => {
                   Users API
                 </a>
               </div>
-              <div className="col-3">
+              <div className="col-xl-2 col-lg-2 col-1">
+                <Auth />
               </div>
             </div>
           </div>

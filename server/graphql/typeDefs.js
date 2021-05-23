@@ -24,10 +24,6 @@ type Post{
 }
 
 
-type Query{
-  getPosts: [Post]
-  getPost(postID: ID!):Post 
-}
 
 type User {
     id: ID!
@@ -44,6 +40,11 @@ type User {
     email: String!
   }
   
+type Query{
+  getPosts: [Post]
+  getPost(postID: ID!):Post 
+}
+
 type Mutation {
   register(registerInput: RegisterInput): User!
   login(username: String! , password: String!): User!
@@ -52,5 +53,6 @@ type Mutation {
   createComment(postId:ID! , body:String!):Post!
   deleteComment(postId:ID! , commentId:ID!):Post!
   likePost(postId:ID!):Post!
+
 }
 `;

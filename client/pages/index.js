@@ -7,6 +7,7 @@ import Post from "../components/post/post";
 import Search from "../components/search/search";
 
 const IndexPage = () => {
+
   const POST = gql`
     query {
       getPosts {
@@ -18,8 +19,6 @@ const IndexPage = () => {
     }
   `;
 
-
-
   const { loading, error, data } = useQuery(POST);
 
   if (loading) return "Loading...";
@@ -28,7 +27,6 @@ const IndexPage = () => {
     return <div style={{ color: "white" }}>{`Error! ${error.message}`}</div>;
   }
 
-  console.log(data);
   return (
     <Layout title="Watch With Dpü">
       <div className="container-fluid ">
@@ -36,8 +34,8 @@ const IndexPage = () => {
           <div className="col-7">
             <Post link="2" name="Naci Aytı" nick="nocey" />
             {
-              data.getPosts.map( e => {
-                return <NewPost link={e.id} name={e.username} nick={e.username} data={e.body} />
+              data.getPosts.map(( e , index )=> {
+                return <NewPost key={index} link={e.id} name={e.username} nick={e.username} data={e.body} />
               })
              }
           </div>
