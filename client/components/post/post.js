@@ -42,7 +42,6 @@ export default function Post({ link, name, nick }) {
         body: post,
       },
     })
-    console.log(e)
   };
   return (
     <div className="row post">

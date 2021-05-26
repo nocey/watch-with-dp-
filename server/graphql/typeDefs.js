@@ -43,6 +43,7 @@ type User {
 type Query{
   getPosts: [Post]
   getPost(postID: ID!):Post 
+  getUser:User!
 }
 
 type Mutation {
