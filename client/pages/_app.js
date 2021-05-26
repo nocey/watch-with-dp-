@@ -6,29 +6,28 @@ import "../public/reset.css";
 import { Provider as ReactProvider } from "react-redux";
 import { useStore } from "../redux/store";
 // import { Provider } from "next-auth/client";
-import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import { ApolloProvider } from '@apollo/client/react';
+import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import { ApolloProvider } from "@apollo/client/react";
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000/',
+  uri: "http://localhost:4000/",
 });
 
 const authLink = setContext((_, { headers }) => {
+  const token = sessionStorage.getItem("user");
 
-  const token = sessionStorage.getItem('user');
-  
   return {
     headers: {
       ...headers,
       Authorization: token ? `Bearer ${token}` : "",
-    }
-  }
+    },
+  };
 });
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 export default function App({ Component, pageProps }) {
@@ -42,3 +41,5 @@ export default function App({ Component, pageProps }) {
     </ApolloProvider>
   );
 }
+
+
